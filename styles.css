@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    font-family: "MS PGothic", sans-serif;
+    font-family: /*'ms gothic'*/ "MS PGothic", sans-serif;
     background-color: rgb(29, 30, 34);
     color: rgb(207, 207, 207);
     letter-spacing: 0.05em;
@@ -191,4 +191,3 @@ p { margin: 0; }
 .nav-container span {
     line-height: 1.5;
 }
-
