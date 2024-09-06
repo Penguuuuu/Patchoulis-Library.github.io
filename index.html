@@ -1,126 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patchouli's Library</title>
-    <link rel="stylesheet" href="styles-styling.css">
-    <link rel="stylesheet" href="styles-index.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Fetch and display visitor count
-            fetch('https://script.google.com/macros/s/AKfycbwFTLln5rMtThC5JBkQRaEqtq1LC2mwyzuXwhd5uboBa1_J8Ofjad_FUf2BDlkLH7SeXw/exec')
-                .then(response => response.text())
-                .then(count => {
-                    document.getElementById('visitorCount').textContent = `You are visitor number: ${count}`;
-                })
-                .catch(error => console.error('Error fetching visitor count:', error));
-
-            // Load messages for the message board
-            loadMessages();
-        });
-
-        function loadMessages() {
-            fetch('https://script.google.com/macros/s/AKfycbwFTLln5rMtThC5JBkQRaEqtq1LC2mwyzuXwhd5uboBa1_J8Ofjad_FUf2BDlkLH7SeXw/exec?function=getMessages')
-                .then(response => response.json())
-                .then(messages => {
-                    const messageContainer = document.getElementById('messages');
-                    messageContainer.innerHTML = '';
-                    messages.forEach(row => {
-                        const timestamp = new Date(row[0]);
-                        const name = row[1];
-                        const message = row[2];
-                        messageContainer.innerHTML += `<p><strong>${name}</strong> (${timestamp.toLocaleString()}):<br>${message}</p>`;
-                    });
-                })
-                .catch(error => console.error('Error fetching messages:', error));
-        }
-
-        function postMessage(name, message) {
-            fetch('https://script.google.com/macros/s/AKfycbwFTLln5rMtThC5JBkQRaEqtq1LC2mwyzuXwhd5uboBa1_J8Ofjad_FUf2BDlkLH7SeXw/exec?function=postMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, message })
-            })
-            .then(() => {
-                loadMessages();
-                document.getElementById('name').value = '';
-                document.getElementById('message').value = '';
-            })
-            .catch(error => console.error('Error posting message:', error));
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('messageForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const name = document.getElementById('name').value;
-                const message = document.getElementById('message').value;
-                postMessage(name, message);
-            });
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sheets Chatbox</title>
+  <style>
+    #chat-box {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      border: 1px solid #ccc;
+      overflow-y: auto;
+    }
+    #chat-messages {
+      padding: 10px;
+    }
+    #message-input {
+      width: 80%;
+    }
+    #char-count {
+      font-size: 12px;
+      color: gray;
+      display: block;
+      margin-top: 5px;
+    }
+    #status-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="box box-titlebar">
-            <b>Home</b>
-        </div> 
-        <div class="box box-nav"> 
-            <b><u>NAVIGATION</u></b>
-            <a class="current">Home</a>
+  <div id="chat-box">
+    <div id="chat-messages"></div>
+  </div>
+  <input type="text" id="username" placeholder="Username">
+  <input type="text" id="message-input" maxlength="200" placeholder="Type your message...">
+  <button id="send-btn">Send</button>
+  <span id="char-count">200 characters remaining</span>
+  <div id="status-message"></div>
 
-            <b><u>PERSONAL</u></b>
-            <a href="about.html">About Me</a>
-            <a href="blog.html">Blog</a>
+  <script>
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-btn');
+    const usernameInput = document.getElementById('username');
+    const charCount = document.getElementById('char-count');
+    const statusMessage = document.getElementById('status-message');
 
-            <b><u>GAMING</u></b>
-            <a href="reviews.html">Reviews</a>
-            <a href="osu!.html">osu!</a>
-            <a href="retro.html">Retro</a>
+    const maxChars = 200; // Set the maximum allowed characters
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbwLUZmpGTv6WoFhI1SIHTbc7ueWRHJUQ9hko8ukAzW0CcIYMc4iPrwHnGKm7HRr6jus/exec"; // Replace with your Web App URL
 
-            <b><u>MUSIC</u></b>
-            <a href="music.html">Music</a>
+    // Function to update the characters remaining counter
+    function updateCharCount() {
+      const remainingChars = maxChars - messageInput.value.length;
+      charCount.textContent = `${remainingChars} characters remaining`;
+    }
 
-            <b><u>OTHER</u></b>
-            <a href="links.html">Links</a>
-            <a href="changelog.html">Changelog</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="box box-intro">
-            <img class="box-pfp" src="Frame 1.png" alt="">
-            <div class="intro-text">
-                I'm <b>Pengu</b> and welcome to my personal corner of cyberspace. I'm an artist/graphic designer from Australia and my general interests/hobbies are rhythm/retro games, graphic design/art, and coding. This site is still a huge WIP so things may not be perfect, but if there's any suggestions or problems feel free to reach out via <a href="contact.html"><u>Contact</u></a>.
-                <b>DISCLAIMER THIS WEBSITE IS BEST VIEWED ON DESKTOP USING FIREFOX IN 1920x1080 AT 100% ZOOM</b>
-            </div>
-        </div>
-        <div class="box box-updates">
-            <b>Latest Update:</b>
-            <b><u>29/08/24</u></b>
-            <b>- Visual:</b> Changed background
-            <b>- Improvement:</b> Removed redundant class .box2
-            <a href="changelog.html"><u>Read Full Changelog»</u></a>
-        </div>
-        <div class="box box-marquee">
-            <div class="marquee-container">
-                <div class="marquee">
-                    <!-- Images here -->
-                </div>
-            </div>
-        </div>
-        <div class="box box-visitor-counter">
-            <p id="visitorCount">Loading visitor count...</p>
-        </div>
-        <div class="box box-message-board">
-            <h2>Message Board</h2>
-            <div id="messages">Loading messages...</div>
-            <form id="messageForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Post Message</button>
-            </form>
-        </div>
-    </div>
+    // Reset input and character counter on page load
+    window.addEventListener('load', () => {
+      messageInput.value = ''; // Reset the message input field
+      updateCharCount(); // Update character counter to reflect 200 characters remaining
+    });
+
+    // Add event listener for input changes to update character counter
+    messageInput.addEventListener('input', updateCharCount);
+
+    // Function to fetch messages from Google Sheets
+    function fetchMessages() {
+      fetch(`${webAppUrl}?action=fetch`)
+        .then(response => response.json())
+        .then(data => {
+          chatMessages.innerHTML = "";
+          data.forEach(message => {
+            chatMessages.innerHTML += `<p><strong>${sanitizeHTML(message.username)}</strong>: ${sanitizeHTML(message.message)} <small>(${sanitizeHTML(message.timestamp)})</small></p>`;
+          });
+        })
+        .catch(error => console.error('Error fetching messages:', error));
+    }
+
+    // Send message to Google Sheets
+    sendButton.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        const username = usernameInput.value.trim() || "Anonymous";
+
+        if (message.length === 0) {
+            statusMessage.textContent = 'Message cannot be empty.';
+            return;
+        }
+
+        if (message.length > maxChars) {
+            // Instead of displaying a status message, just return without sending the message
+            return;
+        }
+
+        fetch(`${webAppUrl}?action=send&username=${encodeURIComponent(username)}&message=${encodeURIComponent(message)}`)
+            .then(response => response.text())
+            .then(data => {
+            if (data === "Message sent") {
+                messageInput.value = '';
+                updateCharCount();
+                fetchMessages();
+                statusMessage.textContent = '';
+            } else {
+                statusMessage.textContent = data;
+            }
+            })
+            .catch(error => console.error('Error sending message:', error));
+        });
+    // Sanitize HTML to prevent XSS
+    function sanitizeHTML(str) {
+      const div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    // Fetch messages every 5 seconds
+    setInterval(fetchMessages, 5000);
+    fetchMessages(); // Initial fetch
+  </script>
 </body>
 </html>
