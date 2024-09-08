@@ -1,0 +1,105 @@
+/* GENERAL ----------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "MS PGothic", sans-serif;
+    font-size: .9rem;
+    letter-spacing: .03rem;
+    line-height: 1.2rem;
+}
+
+body {
+    color: #cfcfcf;
+    background-color: #110E15;
+    background-image: url('background/bg.png');
+    background-attachment: fixed;
+    cursor: url('cursor/cur1.png'), auto !important;
+}
+
+textarea {
+    color: #cfcfcf;
+    background-color: #110E15;
+    font-family: "MS PGothic", sans-serif;
+    font-size: 1em;
+    cursor: url('cursor/cur3.png') 4 7, auto !important;
+}
+
+input {
+    cursor: url('cursor/cur3.png') 4 7, auto !important;
+}
+
+input, textarea {
+    caret-color: #80778c;
+  }
+
+button {
+    cursor: url('cursor/cur2.png'), auto !important;
+}
+
+textarea:focus {
+    outline: none;
+}
+input:focus {
+    outline: none;
+}
+
+::selection {
+    background: #80778c;
+    color: none;
+}
+
+/* SCROLLBAR --------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+::-webkit-scrollbar-thumb {
+    background: #80778c;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #80778c;
+}
+
+/* BOX STYLING ------------------------------------------------------------- */
+.box {
+    border: 1px solid #2F2739;
+    background-color: #110E15;
+    padding: 10px;
+}
+
+/* TITLEBAR ---------------------------------------------------------------- */
+.box-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0px; 
+    background-origin: border-box;
+    background-image: url('misc/titlebar.png');
+
+}
+
+.title-text {
+    font-weight: bold;
+}
+
+/* HYPERLINKS -------------------------------------------------------------- */
+a {
+    text-decoration: none;
+    color: #AA9ABF;
+    cursor: url('cursor/cur2.png'), auto !important;
+}
+
+a:hover {
+    color: #756C80;
+    text-decoration: underline;
+}
+
+a.current {
+    color: #756C80;
+    pointer-events: none;
+}
