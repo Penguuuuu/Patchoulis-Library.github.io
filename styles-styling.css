@@ -1,4 +1,14 @@
 /* GENERAL ----------------------------------------------------------------- */
+:root {
+    --primary: #80778c;
+    --secondary: #2F2739;
+    --backround: #110E15;
+    --text: #cfcfcf;
+    --alert: red;
+    --hyperlink: #AA9ABF;
+    --hyperlink-hover: #756C80;
+  }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,46 +17,45 @@
     font-size: .9rem;
     letter-spacing: .03rem;
     line-height: 1.2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
 }
 
 body {
-    color: #cfcfcf;
-    background-color: #110E15;
+    color: var(--text);
+    background-color: var(--backround);
     background-image: url('background/bg.png');
     background-attachment: fixed;
     cursor: url('cursor/cur1.png'), auto !important;
 }
 
-textarea {
-    color: #cfcfcf;
-    background-color: #110E15;
-    font-family: "MS PGothic", sans-serif;
-    font-size: 1em;
-    cursor: url('cursor/cur3.png') 4 7, auto !important;
-}
-
-input {
-    cursor: url('cursor/cur3.png') 4 7, auto !important;
+ul {
+    list-style-type: none;
+    margin: 4px;
 }
 
 input, textarea {
-    caret-color: #80778c;
-  }
+    cursor: url('cursor/cur3.png') 4 7, auto !important;
+    caret-color: var(--primary);
+    border: none;
+    background: none;
+    resize: none;
+    color: var(--text);
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
 
 button {
     cursor: url('cursor/cur2.png'), auto !important;
-}
-
-textarea:focus {
-    outline: none;
-}
-input:focus {
-    outline: none;
+    border: none;
+    background-color: transparent;
 }
 
 ::selection {
-    background: #80778c;
-    color: none;
+    background: var(--primary);
+    color: black;
 }
 
 /* SCROLLBAR --------------------------------------------------------------- */
@@ -57,17 +66,17 @@ input:focus {
     background: none;
 }
 ::-webkit-scrollbar-thumb {
-    background: #80778c;
+    background: var(--primary);
     border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #80778c;
+    background: var(--primary);
 }
 
-/* BOX STYLING ------------------------------------------------------------- */
+/* BOX --------------------------------------------------------------------- */
 .box {
-    border: 1px solid #2F2739;
-    background-color: #110E15;
+    border: 1px solid var(--secondary);
+    background-color: var(--backround);
     padding: 10px;
 }
 
@@ -87,7 +96,13 @@ input:focus {
     font-weight: bold;
 }
 
-/* HYPERLINKS -------------------------------------------------------------- */
+/* NAV --------------------------------------------------------------------- */
+.nav-title { 
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* HYPERLINK --------------------------------------------------------------- */
 a {
     text-decoration: none;
     color: #AA9ABF;
@@ -95,11 +110,11 @@ a {
 }
 
 a:hover {
-    color: #756C80;
+    color: var(--hyperlink-hover);
     text-decoration: underline;
 }
 
 a.current {
-    color: #756C80;
+    color: var(--hyperlink-hover);
     pointer-events: none;
 }

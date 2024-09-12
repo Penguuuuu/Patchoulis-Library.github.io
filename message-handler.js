@@ -29,8 +29,6 @@ function initChat() {
     createEmojiPicker();
     fetchMessages(true);
     autoResizeTextarea(messageInput);
-    
-    // Set the username input height equal to the line-height of message input
     matchUsernameInputHeight();
 }
 
@@ -180,10 +178,15 @@ function handleTextareaReset() {
 }
 
 function autoResizeTextarea(textarea) {
-    const lineHeight = parseFloat(window.getComputedStyle(textarea).lineHeight);
+    const style = getComputedStyle(textarea);
+    const lineHeight = parseFloat(style.lineHeight);
+    const minHeight = lineHeight;
+    
     textarea.style.height = 'auto';
-    const newHeight = Math.ceil(textarea.scrollHeight / lineHeight) * lineHeight;
-    textarea.style.height = `${newHeight}px`;
+    const scrollHeight = textarea.scrollHeight;
+    const newHeight = Math.max(scrollHeight, minHeight);
+
+    textarea.style.height = `${Math.round(newHeight / lineHeight) * lineHeight}px`;
 }
 
 emojiButton.addEventListener('click', () => {
