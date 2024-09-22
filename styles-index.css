@@ -72,7 +72,7 @@ body {
 }
 
 .emoji-inline {
-    vertical-align: middle;
+    vertical-align: -4px;
 }
 
 .spacer {

@@ -60,18 +60,6 @@ function updateCharCount() {
     charCount.textContent = `${remainingChars} characters remaining`;
 }
 
-function formatTimestamp(timestamp) {
-    const date = new Date(timestamp);
-    if (isNaN(date.getTime())) {
-        return '';
-    }
-    const hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    const formattedHours = hours % 12 || 12;
-    return `${formattedHours}:${minutes}${ampm}`;
-}
-
 function isAtBottom() {
     return chatMessages.scrollHeight - chatMessages.scrollTop <= chatMessages.clientHeight + 1;
 }
@@ -87,9 +75,9 @@ async function fetchMessages(forceScroll = false) {
     try {
         const response = await fetch(`${WEB_APP_URL}?action=fetch`);
         const data = await response.json();
-        const messagesData = data.slice(1);
-        const messagesHTML = messagesData.map(({ username, timestamp, message }) =>
-            `<strong>${sanitizeHTML(username)} ${formatTimestamp(timestamp)} - </strong>${replaceEmojiTextWithImage(message)}<br><br>`
+        const messagesData = data.slice(1); // Ignoring the header row
+        const messagesHTML = messagesData.map(({ username, message }) => 
+            `<strong>${sanitizeHTML(username)}</strong>: ${replaceEmojiTextWithImage(message)}<br><br>`
         ).join('');
 
         chatMessages.innerHTML = messagesHTML;
@@ -150,7 +138,7 @@ async function sendMessage() {
         const data = await response.text();
 
         if (data === "Message sent") {
-            const newMessageHTML = `<strong>${sanitizeHTML(username)} ${formatTimestamp(new Date().toISOString())} - </strong>${replaceEmojiTextWithImage(message)}<br><br>`;
+            const newMessageHTML = `<strong>${sanitizeHTML(username)} - </strong>${replaceEmojiTextWithImage(message)}<br><br>`;
             chatMessages.innerHTML += newMessageHTML;
             chatMessages.scrollTop = chatMessages.scrollHeight;
             messageSent = true;
