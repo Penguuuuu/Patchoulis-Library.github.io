@@ -75,7 +75,7 @@ async function fetchMessages(forceScroll = false) {
     try {
         const response = await fetch(`${WEB_APP_URL}?action=fetch`);
         const data = await response.json();
-        const messagesData = data.slice(1); // Ignoring the header row
+        const messagesData = data.slice(1);
         const messagesHTML = messagesData.map(({ username, message }) => 
             `<strong>${sanitizeHTML(username)}</strong>: ${replaceEmojiTextWithImage(message)}<br><br>`
         ).join('');
@@ -138,7 +138,7 @@ async function sendMessage() {
         const data = await response.text();
 
         if (data === "Message sent") {
-            const newMessageHTML = `<strong>${sanitizeHTML(username)} - </strong>${replaceEmojiTextWithImage(message)}<br><br>`;
+            const newMessageHTML = `<strong>${sanitizeHTML(username)}</strong>: ${replaceEmojiTextWithImage(message)}<br><br>`;
             chatMessages.innerHTML += newMessageHTML;
             chatMessages.scrollTop = chatMessages.scrollHeight;
             messageSent = true;
