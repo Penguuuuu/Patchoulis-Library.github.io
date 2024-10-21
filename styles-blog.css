@@ -1,0 +1,92 @@
+/* GENERAL ----------------------------------------------------------------- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 20px;
+}
+
+/* BOX LAYOUT -------------------------------------------------------------- */
+.container {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 140px 550px;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+    "box-title box-title"
+    "box-nav box-intro"
+    "box-nav box-blog"
+    "box-marquee box-marquee";
+}
+
+/* TITLEBAR ---------------------------------------------------------------- */
+.box-title {
+    grid-area: box-title;
+}
+
+/* NAV -------------------------------------------------------------------- */
+.box-nav { 
+    grid-area: box-nav;
+}
+
+/* INTRO ------------------------------------------------------------------ */
+.box-intro { 
+    grid-area: box-intro; 
+    gap: 10px;
+}
+
+.intro-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* BLOG ------------------------------------------------------------------- */
+.box-blog { 
+    grid-area: box-blog;
+}
+
+.blog-title-text {
+    position: absolute;
+    font-weight: bold;
+    line-height: 14px;
+    padding-top: 2px;
+    padding-left: 2px;
+}
+
+.spacer {
+    grid-area: spacer;
+    border-top: 1px solid var(--secondary);
+}
+
+/* MARQUEE ---------------------------------------------------------------- */
+.box-marquee {
+    grid-area: box-marquee;
+    padding: 4px;
+}
+
+.container-marquee {
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+}
+
+.marquee {
+    animation: marquee 20s linear infinite;
+    display: flex;
+}
+
+.marquee img {
+    margin-right: 4px;
+}
+
+.marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
