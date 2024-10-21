@@ -90,3 +90,48 @@ body {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
 }
+
+
+
+
+
+
+
+/* styles.css */
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background-color: none;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    border-radius: 10px;
+  }
+  
+  .main-content {
+    display: none;
+  }
+  
+  button {
+    text-decoration: underline;
+    color: #cfcfcf;
+    border: none;
+  }
+  
+  button:hover {
+    text-decoration: underline;
+    color: red;
+  }
+  
