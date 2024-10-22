@@ -7,6 +7,14 @@ body {
     padding-bottom: 20px;
 }
 
+p {
+    margin-bottom: 14px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
 /* POPUP ------------------------------------------------------------------ */
 .popup {
     position: fixed;
@@ -92,6 +100,7 @@ body {
 .spacer {
     grid-area: spacer;
     border-top: 1px solid var(--secondary);
+    margin-bottom: 14px;
 }
 
 /* MARQUEE ---------------------------------------------------------------- */
