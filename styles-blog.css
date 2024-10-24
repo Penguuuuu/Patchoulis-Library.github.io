@@ -1,6 +1,7 @@
 /* GENERAL ----------------------------------------------------------------- */
 p {
     margin-bottom: 14px;
+    margin-left: 4px;
 }
 
 p:last-child {
