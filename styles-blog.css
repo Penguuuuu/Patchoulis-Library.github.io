@@ -19,30 +19,30 @@ p:last-child {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    }
+}
     
-    .popup-content {
+.popup-content {
     background-color: none;
     padding: 20px;
     text-align: center;
     max-width: 400px;
     border-radius: 10px;
-    }
+}
     
-    .main-content {
+.main-content {
     display: none;
-    }
+}
     
-    button {
+button {
     text-decoration: underline;
     color: #cfcfcf;
     border: none;
-    }
+}
     
-    button:hover {
+button:hover {
     text-decoration: underline;
     color: red;
-    }
+}
 
 /* BOX LAYOUT -------------------------------------------------------------- */
 .container {
