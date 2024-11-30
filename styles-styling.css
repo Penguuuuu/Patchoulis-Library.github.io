@@ -26,7 +26,7 @@ body {
     background-color: var(--backround);
     background-image: url('background/bg.png');
     background-attachment: fixed;
-    background-position: left;
+    background-position: center;
     cursor: url('cursor/cur1.png'), auto !important;
     padding-top: 100px;
     padding-bottom: 20px;

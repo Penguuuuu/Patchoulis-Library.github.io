@@ -50,7 +50,7 @@ button:hover {
     display: grid;
     gap: 1px;
     grid-template-columns: 140px 550px;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto 500px auto auto;
     grid-template-areas:
     "box-title box-title"
     "box-nav box-intro"
@@ -80,14 +80,15 @@ button:hover {
 /* BLOG ------------------------------------------------------------------- */
 .box-blog { 
     grid-area: box-blog;
+    overflow: auto;
 }
 
-.blog-title-text {
-    position: absolute;
+.blog-title {
+    background-image: url('misc/heading-blog.png'); 
     font-weight: bold;
-    line-height: 14px;
     padding-top: 2px;
     padding-left: 4px;
+    margin-bottom: 6px;
 }
 
 .spacer {

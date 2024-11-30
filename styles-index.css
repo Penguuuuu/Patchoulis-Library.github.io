@@ -7,7 +7,7 @@
     grid-template-areas:
     "box-title box-title"
     "box-nav box-intro"
-    "box-nav box-chat"
+    "box-nav box-todo"
     "box-nav box-updates"
     "box-marquee box-marquee";
 }
@@ -41,96 +41,8 @@
 }
 
 /* CHAT ------------------------------------------------------------------- */
-.box-chat {
-    grid-area: box-chat;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 250px 10px auto auto auto auto auto auto;
-    grid-template-areas:
-    "chat-messages chat-messages"
-    "spacer spacer"
-    "input-name-chat emoji-button"
-    "input-message-chat button-send-chat"
-    "emoji-picker emoji-picker"
-    "char-count char-count"
-    "status-message status-message"
-    "new-message-notification new-message-notification";
-}
-
-.chat-messages {
-    grid-area: chat-messages;
-    overflow-y: auto;
-    word-wrap: break-word;
-}
-
-.emoji-inline {
-    vertical-align: -4px;
-}
-
-.spacer {
-    grid-area: spacer;
-    border-top: 1px solid var(--secondary);
-}
-
-.input-name-chat {
-    grid-area: input-name-chat;
-    border: none;
-    background: none;
-}
-.input-message-chat {
-    grid-area: input-message-chat;
-
-}
-
-.emoji-picker {
-    grid-area: emoji-picker;
-}
-
-.emoji-picker img {
-    image-rendering: pixelated;
-    cursor: url('cursor/cur2.png'), auto !important;
-    vertical-align: middle;
-}
-
-.emoji-button {
-    grid-area: emoji-button;
-    background-image: url('misc/emoji.png');
-    width: 16px;
-    height: 16px;
-    margin-left: 4px;
-    margin-bottom: 4px;
-}
-
-.emoji-button:hover {
-    background-image: url('misc/emoji-hover.png');
-}
-
-.button-send-chat {
-    grid-area: button-send-chat;
-    width: 16px;
-    height: 16px;
-    background-image: url('misc/send.png');
-    margin-left: 4px;
-    align-self: flex-end;
-}
-
-.button-send-chat:hover {
-    background-image: url('misc/send-hover.png');
-}
-
-.char-count {
-    grid-area: char-count;
-}
-
-.status-message {
-    grid-area: status-message;
-    color: var(--alert);
-}
-
-.new-message-notification {
-    grid-area: new-message-notification;
-    text-align: center;
-    font-weight: bold;
+.box-boc {
+    grid-area: box-boc;
 }
 
 /* UPDATES ---------------------------------------------------------------- */
