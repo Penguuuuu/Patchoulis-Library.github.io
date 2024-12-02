@@ -5,6 +5,7 @@
     --backround: #110E15;
     --text: #cfcfcf;
     --alert: red;
+    --unavailable: rgb(116, 0, 0);
     --hyperlink: #AA9ABF;
     --hyperlink-hover: #756C80;
 }
@@ -62,6 +63,10 @@ button {
 ::selection {
     background: var(--primary);
     color: black;
+}
+
+.unavailable {
+    color: var(--unavailable);
 }
 
 /* SCROLLBAR --------------------------------------------------------------- */
