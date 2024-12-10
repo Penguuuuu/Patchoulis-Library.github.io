@@ -1,4 +1,10 @@
 /* GENERAL ----------------------------------------------------------------- */
+@font-face {
+    font-family: 'unifont';
+    src: url('misc/unifont.ttf') format('truetype');
+    
+}
+
 :root {
     --primary: #80778c;
     --secondary: #2F2739;
@@ -14,7 +20,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "MS PGothic", sans-serif;
+    font-family: "MS PGothic", 'unifont', sans-serif;
     font-size: .9rem;
     letter-spacing: .03rem;
     line-height: 1.2rem;
