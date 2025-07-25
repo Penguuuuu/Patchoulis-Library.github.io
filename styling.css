@@ -112,3 +112,7 @@ nav span:hover:not(.active-tab) {
     border: solid 1px var(--dark);
     padding: .5rem;
 }
+
+ul {
+  list-style-type: circle;
+}
