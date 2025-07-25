@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'lucon';
+    src: url('/fonts/lucon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --light: #CCCCCC;
+    --dark:  #4F4F4F;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    color: var(--dark);
+    background-color: var(--light);
+    font-family: 'lucon', arial;
+    font-size: .9rem;
+    line-height: 1.3rem;
+}
+
+nav {
+    width: 17rem;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    margin: .5rem 0 2rem 0;
+    background: var(--dark);
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#patchouli {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    height: 30rem;
+}
+
+.h1 {
+    background: var(--dark);
+    color: var(--light);
+    padding: 0.1rem 0.6rem;
+}
+
+.h2 {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    margin-left: .6rem;
+    border-bottom: solid 1px var(--dark);
+    display: flex;
+    flex: content;
+}
+
+.active-tab {
+    font-weight: bold;
+}
+
+nav span:hover:not(.active-tab) {
+    text-decoration: underline;
+}
+
+/* BOX LAYOUT -------------------------------------------------------------- */
+#box {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+        "box-nav box-main";
+}
+
+/* NAV --------------------------------------------------------------------- */
+#box-nav { 
+    grid-area: box-nav;
+    border: solid 1px var(--dark);
+    padding: .5rem;
+    width: 13rem;
+}
+
+.active-nav {
+    padding-left: .6rem;
+    background: var(--dark);
+    color: var(--light);
+}
+
+/* MAIN -------------------------------------------------------------------- */
+#box-main {
+    grid-area: box-main;
+    width: 50rem;
+    border: solid 1px var(--dark);
+    padding: .5rem;
+}
