@@ -30,22 +30,20 @@ body {
 }
 
 nav {
-    width: 17rem;
+    width: 18rem;
     text-align: center;
 }
 
 hr {
     border: none;
     height: 1px;
-    margin: .5rem 0 2rem 0;
+    margin: .5rem 0 1rem 0;
     background: var(--dark);
 }
 
 footer {
     position: absolute;
     bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 #patchouli {
