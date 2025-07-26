@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'lucon';
-    src: url('fonts/lucon.ttf') format('truetype');
+    font-family: 'SourceCodePro';
+    src: url('fonts/SourceCodePro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,8 +24,8 @@ body {
     padding: 2rem;
     color: var(--dark);
     background-color: var(--light);
-    font-family: 'lucon', arial;
-    font-size: .9rem;
+    font-family: 'SourceCodePro', arial;
+    font-size: .85rem;
     line-height: 1.3rem;
 }
 
