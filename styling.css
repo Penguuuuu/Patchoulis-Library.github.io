@@ -43,6 +43,10 @@ hr {
     background: var(--dark);
 }
 
+a {
+  text-decoration: none;
+}
+
 footer {
     position: absolute;
     bottom: 1rem;
@@ -107,24 +111,14 @@ footer {
     text-decoration: none;
 }
 
-#box-nav a:not(.active):hover {
+#box-nav a:hover {
     font-weight: bold;
 }
 
-.nav-section a{
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--dark);
-}
-
-.nav-section.active {
-    /* font-weight: normal; */
+.nav-section {
+    color: var(--light);
     background: var(--dark);
     padding-left: .6rem;
-}
-
-.nav-section.active a {
-    color: var(--light);
 }
 
 
