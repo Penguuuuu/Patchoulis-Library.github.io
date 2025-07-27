@@ -14,6 +14,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scrollbar-width: none !important;
 }
 
 body {
@@ -72,6 +73,15 @@ footer {
     flex: content;
 }
 
+.link {
+    text-decoration: underline;
+    color: var(--dark);
+}
+
+.link:hover {
+    font-weight: bold;
+}
+
 .active-tab {
     font-weight: bold;
 }
@@ -107,11 +117,35 @@ nav span:hover:not(.active-tab) {
 /* MAIN -------------------------------------------------------------------- */
 #box-main {
     grid-area: box-main;
+    position: relative;
     width: 50rem;
+    max-height: 40rem;
     border: solid 1px var(--dark);
     padding: .5rem;
 }
 
-ul {
-  list-style-type: circle;
+/* SCROLLBAR --------------------------------------------------------------- */
+.scroll-content {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 1rem;
+}
+
+.scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: .7rem;
+    height: 100%;
+    padding: 1px;
+    background: var(--dark);
+}
+
+.scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: calc(100% - 1px);
+    background: var(--light);
+    cursor: pointer;
 }
