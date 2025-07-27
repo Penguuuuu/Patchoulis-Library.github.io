@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     scrollbar-width: none !important;
+    /* scroll-behavior: smooth; */
 }
 
 body {
@@ -82,14 +83,6 @@ footer {
     font-weight: bold;
 }
 
-.active-tab {
-    font-weight: bold;
-}
-
-nav span:hover:not(.active-tab) {
-    text-decoration: underline;
-}
-
 /* BOX LAYOUT -------------------------------------------------------------- */
 #box {
     display: grid;
@@ -108,18 +101,39 @@ nav span:hover:not(.active-tab) {
     width: 13rem;
 }
 
-.active-nav {
+#box-nav div:not(.nav-section) a {
     padding-left: .6rem;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+#box-nav a:not(.active):hover {
+    font-weight: bold;
+}
+
+.nav-section a{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.nav-section.active {
+    /* font-weight: normal; */
     background: var(--dark);
+    padding-left: .6rem;
+}
+
+.nav-section.active a {
     color: var(--light);
 }
+
 
 /* MAIN -------------------------------------------------------------------- */
 #box-main {
     grid-area: box-main;
     position: relative;
     width: 50rem;
-    max-height: 40rem;
+    height: 40rem;
     border: solid 1px var(--dark);
     padding: .5rem;
 }
@@ -148,4 +162,15 @@ nav span:hover:not(.active-tab) {
     width: calc(100% - 1px);
     background: var(--light);
     cursor: pointer;
+}
+
+
+.title hr {
+    margin: 0;
+    /* height: 2px; */
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
 }
