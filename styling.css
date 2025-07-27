@@ -128,7 +128,7 @@ nav span:hover:not(.active-tab) {
 .scroll-content {
     height: 100%;
     overflow-y: scroll;
-    padding-right: 1rem;
+    padding-right: .7rem; /* +.2 to account for the scrollbar width */
 }
 
 .scrollbar {
