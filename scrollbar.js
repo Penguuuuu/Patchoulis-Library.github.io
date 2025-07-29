@@ -1,7 +1,10 @@
 const container = document.querySelector('#box-main');
 const scrollContent = container.querySelector('.scroll-content');
 const scrollbar = container.querySelector('.scrollbar');
-const thumb = scrollbar.querySelector('.scrollbar-thumb');
+
+const thumb = document.createElement('div');
+thumb.classList.add('scrollbar-thumb');
+scrollbar.appendChild(thumb);
 
 let isDragging = false, startY, startTop;
 
